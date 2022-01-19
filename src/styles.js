@@ -8,9 +8,11 @@ export const customMedia = generateMedia({
   desktop: "1024px",
 });
 
-const color = {
+export const color = {
   white: "rgba(240, 240, 240)",
-  black: "rgba(40, 40, 40)"
+  black: "rgba(40, 40, 40)",
+  red: "rgba(255, 80,80)",
+  yellow: "rgba(255, 255, 40)"
 }
 
 export const ligthTheme = {
@@ -26,6 +28,7 @@ export const darkTheme = {
 export const GlobalStyle = createGlobalStyle`
   ${reset}
   body {
+    position: relative;
     background-color: ${props => props.theme.bgColor};
     color: ${props => props.theme.fontColor};
     transition: background-color 1s ease, color 1s ease;

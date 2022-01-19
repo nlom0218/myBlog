@@ -1,6 +1,6 @@
 import { useReactiveVar } from '@apollo/client';
 import React from 'react';
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { darkModeVar } from './apollo';
 import Home from './pages/Home';
