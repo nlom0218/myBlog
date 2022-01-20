@@ -25,8 +25,8 @@ const LeftIcons = () => {
     <BarIcon onClick={() => onClickBarIcon("left")}>
       <AiOutlineHome />
     </BarIcon>
-    <BarIcon>
-      <GiTeacher onClick={() => onClickBarIcon("left", "school")} />
+    <BarIcon onClick={() => onClickBarIcon("left", "school")}>
+      <GiTeacher />
     </BarIcon>
     <BarIcon onClick={() => onClickBarIcon("left", "travel")}>
       <FaPlane />
