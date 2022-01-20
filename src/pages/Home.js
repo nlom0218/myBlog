@@ -1,15 +1,84 @@
 import React from 'react';
+import styled from 'styled-components';
 import BasicContainer from '../Components/Shared/BasicContainer';
 import LeftContainer from '../Components/Shared/LeftContainer';
 import RightContainer from '../Components/Shared/RightContainer';
 
+const Content = styled.div`
+`
+const Title = styled.div`
+  padding: 80px;
+`
+
 const Home = () => {
   return (<BasicContainer>
     <LeftContainer>
-      안녕?!!?!?!?!?!
+      <Content>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+      </Content>
     </LeftContainer>
     <RightContainer>
-      뭐야!?!?!?!??
+      <Content>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+        <Title>
+          안녕?!!?!?!?!?!
+        </Title>
+      </Content>
     </RightContainer>
   </BasicContainer>);
 }

@@ -11,6 +11,15 @@ const SLeftContainer = styled.div`
   right: ${props => props.rightContents ? "100%" : "0"};
   left: ${props => props.rightContents ? "-100%" : "0"};
   animation: ${props => !props.initLoad && (props.rightContents ? FadeOutLeftContainer : FadeInLeftContainer)} 1.5s ease-in-out;
+`
+
+const ContentsContainer = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 60px;
+  right: 3.75rem;
   min-height: 100vh;
   max-height: 100vh;
   overflow-x: scroll;
@@ -21,11 +30,13 @@ const SLeftContainer = styled.div`
   }
   background-color: ${props => props.theme.bgColor};
   transition: background-color 1s ease;
-  display: grid;
-  grid-template-columns: 1fr auto;
 `
 
 const DivideBar = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 60px;
   width: 3.75rem;
   min-height: 100vh;
@@ -68,7 +79,9 @@ const LeftContainer = ({ children }) => {
   }
 
   return (<SLeftContainer rightContents={rightContents} initLoad={initLoad}>
-    {children}
+    <ContentsContainer>
+      {children}
+    </ContentsContainer>
     <DivideBar rightContents={rightContents}>
       <BarIcon onClick={onClickDivideBar}><BiLeftArrowAlt /></BarIcon>
     </DivideBar>
