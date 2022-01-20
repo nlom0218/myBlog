@@ -2,16 +2,20 @@ import { useReactiveVar } from '@apollo/client';
 import React from 'react';
 import styled from 'styled-components';
 import { BsSunFill, BsMoonStarsFill } from "react-icons/bs";
-import { darkModeVar, disableDarkMode, enableDarkMode } from '../../apollo';
+import { darkModeVar, disableDarkMode, disableRightContents, enableDarkMode, enableRightContents, rightContentsVar } from '../../apollo';
 import { color } from "../../styles"
 
-const Container = styled.div``
+const Container = styled.div`
+  position: relative;
+
+`
 
 const ThemeBtn = styled.div`
   cursor: pointer;
   position: fixed;
   bottom: 1%;
-  right: 1%;
+  right: 40px;
+  right: 2.5rem;
   font-size: 1.25em;
   font-size: 1.25rem;
   padding: 10px 20px;
@@ -28,12 +32,19 @@ const ThemeBtn = styled.div`
 
 const BasicContainer = ({ children }) => {
   const darkMode = useReactiveVar(darkModeVar)
-  console.log(darkMode);
+  const rightContents = useReactiveVar(rightContentsVar)
   const onClickThemeBtn = () => {
     if (darkMode) {
       disableDarkMode()
     } else {
       enableDarkMode()
+    }
+  }
+  const onClickDivideBar = () => {
+    if (rightContents) {
+      disableRightContents()
+    } else {
+      enableRightContents()
     }
   }
   return (<Container>

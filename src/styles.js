@@ -28,8 +28,9 @@ export const darkTheme = {
 export const GlobalStyle = createGlobalStyle`
   ${reset}
   body {
+    min-height: 100vh;
     position: relative;
-    background-color: ${props => props.theme.bgColor};
+    background-color: red;
     color: ${props => props.theme.fontColor};
     transition: background-color 1s ease, color 1s ease;
     font-size: 1em;
