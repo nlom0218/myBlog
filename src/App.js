@@ -14,6 +14,7 @@ function App() {
   const rightContents = useReactiveVar(rightContentsVar)
   const leftPage = useReactiveVar(leftPageVar)
   const rightPage = useReactiveVar(rightPageVar)
+  console.log(leftPage, rightPage);
 
   useEffect(() => {
     setInitLoad()
@@ -31,6 +32,7 @@ function App() {
         {/* MY LIFE */}
         <LeftContainer>
           {!leftPage && <MyLifeHome />}
+          {leftPage === "travel" && <div>나의 여행 기록</div>}
         </LeftContainer>
 
         {/* STUDY */}

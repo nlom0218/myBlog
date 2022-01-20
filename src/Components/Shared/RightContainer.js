@@ -1,8 +1,8 @@
 import { useReactiveVar } from '@apollo/client';
-import { BiRightArrowAlt } from "react-icons/bi";
 import styled from 'styled-components';
 import { FadeInRightContainer, FadeOutRightContainer } from '../../animation/containerFadeAni';
-import { disableRightContents, hideRightContents, initLoadVar, isSeeRightContentsVar, notInitLoad, rightContentsVar } from '../../apollo';
+import { initLoadVar, isSeeRightContentsVar, rightContentsVar } from '../../apollo';
+import RightIcons from './RightIcons';
 
 const SRightContainer = styled.div`
   position: absolute;
@@ -56,27 +56,6 @@ const DivideBar = styled.div`
   transition: background-color 1s ease, color 1s ease;
   display: grid;
   align-items: flex-start;
-  padding: 20px 0px;
-  padding: 1.25rem 0rem;
-  row-gap: 20px;
-  row-gap: 1.25rem;
-  justify-items: center;
-`
-
-const BarIcon = styled.div`
-  cursor: pointer;
-  border-radius: 50%;
-  border: 1px solid ${props => props.theme.menuFontColor};
-  transition: border 1s ease;
-  svg {
-    font-size: 2rem;
-    display: flex;
-  }
-  :hover {
-    background-color: ${props => props.theme.menuFontColor};
-    color: ${props => props.theme.menuBgColor};
-    transition: background-color 0.6s ease, color 0.6 ease;
-  }
 `
 
 const RightContainer = ({ children }) => {
@@ -84,17 +63,9 @@ const RightContainer = ({ children }) => {
   const initLoad = useReactiveVar(initLoadVar)
   const isSeeRightContents = useReactiveVar(isSeeRightContentsVar)
 
-  const onClickDivideBar = () => {
-    disableRightContents()
-    notInitLoad()
-    setTimeout(() => {
-      hideRightContents()
-    }, 1500)
-  }
-
   return <SRightContainer rightContents={rightContents} isSeeRightContents={isSeeRightContents} initLoad={initLoad}>
     <DivideBar rightContents={rightContents}>
-      <BarIcon onClick={onClickDivideBar}><BiRightArrowAlt /></BarIcon>
+      <RightIcons />
     </DivideBar>
     <ContentsContainer>
       {children}

@@ -58,14 +58,18 @@ export const rightPageVar = makeVar(localStorage.getItem(RIGHT))
 export const moveHome = (direction) => {
   if (direction === "left") {
     localStorage.removeItem(LEFT)
+    leftPageVar(null)
   } else {
     localStorage.removeItem(RIGHT)
+    rightPageVar(null)
   }
 }
 export const movePage = (direction, page) => {
   if (direction === "left") {
     localStorage.setItem(LEFT, page)
+    leftPageVar(page)
   } else {
     localStorage.setItem(RIGHT, page)
+    rightPageVar(page)
   }
 }
