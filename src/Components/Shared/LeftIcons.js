@@ -5,7 +5,7 @@ import { BarIcon } from './BarIcon';
 import { AiOutlineHome } from "react-icons/ai";
 import { BarContainer } from './BarContainer';
 import { FaPlane } from "react-icons/fa";
-import { useReactiveVar } from '@apollo/client';
+import { GiTeacher } from "react-icons/gi";
 
 const LeftIcons = () => {
   const onClickDivideBar = () => {
@@ -24,6 +24,9 @@ const LeftIcons = () => {
     <BarIcon onClick={onClickDivideBar}><BiLeftArrowAlt /></BarIcon>
     <BarIcon onClick={() => onClickBarIcon("left")}>
       <AiOutlineHome />
+    </BarIcon>
+    <BarIcon>
+      <GiTeacher onClick={() => onClickBarIcon("left", "school")} />
     </BarIcon>
     <BarIcon onClick={() => onClickBarIcon("left", "travel")}>
       <FaPlane />

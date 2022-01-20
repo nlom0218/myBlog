@@ -6,6 +6,8 @@ import BasicContainer from './Components/Shared/BasicContainer';
 import LeftContainer from './Components/Shared/LeftContainer';
 import RightContainer from './Components/Shared/RightContainer';
 import MyLifeHome from './pages/MyLife/MyLifeHome';
+import SchoolLife from './pages/MyLife/SchoolLife';
+import Travel from './pages/MyLife/Travel';
 import StudyHome from './pages/Study/StudyHome';
 import { darkTheme, GlobalStyle, ligthTheme } from './styles';
 
@@ -31,7 +33,8 @@ function App() {
         {/* MY LIFE */}
         <LeftContainer>
           {!leftPage && <MyLifeHome />}
-          {leftPage === "travel" && <div>나의 여행 기록</div>}
+          {leftPage === "travel" && <Travel />}
+          {leftPage === "school" && <SchoolLife />}
         </LeftContainer>
 
         {/* STUDY */}

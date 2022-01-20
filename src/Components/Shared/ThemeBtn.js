@@ -7,8 +7,8 @@ import { color } from "../../styles"
 import { opacityThemeBtn } from '../../animation/themeBtnAni';
 
 const SThemeBtn = styled.div`
-  margin: 20px 0px;
-  margin: 1.25rem 0rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   cursor: pointer;
   font-size: 1.5em;
   font-size: 1.5rem;
