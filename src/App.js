@@ -14,7 +14,6 @@ function App() {
   const rightContents = useReactiveVar(rightContentsVar)
   const leftPage = useReactiveVar(leftPageVar)
   const rightPage = useReactiveVar(rightPageVar)
-  console.log(leftPage, rightPage);
 
   useEffect(() => {
     setInitLoad()

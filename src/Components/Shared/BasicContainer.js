@@ -12,7 +12,6 @@ const Container = styled.div`
 const BasicContainer = ({ children }) => {
   return (<Container>
     {children}
-    <ThemeBtn />
   </Container>);
 }
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FadeInRightContainer, FadeOutRightContainer } from '../../animation/containerFadeAni';
 import { initLoadVar, isSeeRightContentsVar, rightContentsVar } from '../../apollo';
 import RightIcons from './RightIcons';
+import ThemeBtn from './ThemeBtn';
 
 const SRightContainer = styled.div`
   position: absolute;
@@ -55,6 +56,8 @@ const DivideBar = styled.div`
   color: ${props => props.theme.menuFontColor};
   transition: background-color 1s ease, color 1s ease;
   display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
   align-items: flex-start;
 `
 
@@ -66,6 +69,7 @@ const RightContainer = ({ children }) => {
   return <SRightContainer rightContents={rightContents} isSeeRightContents={isSeeRightContents} initLoad={initLoad}>
     <DivideBar rightContents={rightContents}>
       <RightIcons />
+      <ThemeBtn />
     </DivideBar>
     <ContentsContainer>
       {children}

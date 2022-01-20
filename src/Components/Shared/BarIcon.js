@@ -20,6 +20,5 @@ export const BarIcon = styled.div`
   :hover {
     background-color: ${props => props.theme.menuFontColor};
     color: ${props => props.theme.menuBgColor};
-    transition: background-color 0.6s ease, color 0.6 ease;
   }
 `

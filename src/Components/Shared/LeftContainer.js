@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FadeOutLeftContainer, FadeInLeftContainer } from '../../animation/containerFadeAni';
 import { initLoadVar, rightContentsVar } from '../../apollo';
 import LeftIcons from './LeftIcons';
+import ThemeBtn from './ThemeBtn';
 
 const SLeftContainer = styled.div`
   position: absolute;
@@ -51,7 +52,11 @@ const DivideBar = styled.div`
   color: ${props => props.theme.menuFontColor};
   transition: background-color 1s ease, color 1s ease;
   display: grid;
+  grid-template-rows: 1fr auto;
+  row-gap: 20px;
+  row-gap: 1.25rem;
   align-items: flex-start;
+  justify-items: center;
 `
 
 const LeftContainer = ({ children }) => {
@@ -64,6 +69,7 @@ const LeftContainer = ({ children }) => {
     </ContentsContainer>
     <DivideBar rightContents={rightContents}>
       <LeftIcons />
+      <ThemeBtn />
     </DivideBar>
   </SLeftContainer>);
 }

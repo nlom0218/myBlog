@@ -7,22 +7,25 @@ import { color } from "../../styles"
 import { opacityThemeBtn } from '../../animation/themeBtnAni';
 
 const SThemeBtn = styled.div`
+  margin: 20px 0px;
+  margin: 1.25rem 0rem;
   cursor: pointer;
-  position: fixed;
-  bottom: 1%;
-  right: 1%;
-  font-size: 1.25em;
-  font-size: 1.25rem;
-  padding: 10px 20px;
-  padding: 0.625rem 1.25rem;
-  border-radius: 20px;
-  border-radius: 1.25rem;
+  font-size: 1.5em;
+  font-size: 1.5rem;
+  width: 40px;
+  width: 2.5rem;
+  height: 40px;
+  height: 2.5rem;
+  border-radius: 50%;
   color: ${props => props.darkMode ? color.red : color.yellow};
-  background-color: ${props => props.theme.fontColor};
-  transition: color 1s ease, background-color 1s ease;
+  border: 1px solid ${props => props.darkMode ? color.red : color.yellow};
+  transition: color 1s ease, background-color 1s ease, border 1s ease;
   svg {
     display: flex;
   }
+  display: grid;
+  align-items: center;
+  justify-items: center;
 `
 
 const ThemeBtn = () => {
