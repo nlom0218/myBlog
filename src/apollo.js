@@ -1,7 +1,9 @@
 import { makeVar } from "@apollo/client"
 
 const DARK = "dark"
-const RIGHT_CONTENTS = "contents"
+const RIGHT_CONTENTS = "rightContents"
+const INIT_LOAD = "initLoad"
+const SEE_RIGHT_CONTENTS = "seeRightContents"
 
 export const darkModeVar = makeVar(Boolean(localStorage.getItem(DARK)))
 export const enableDarkMode = () => {
@@ -21,4 +23,24 @@ export const enableRightContents = () => {
 export const disableRightContents = () => {
   localStorage.removeItem(RIGHT_CONTENTS)
   rightContentsVar(false)
+}
+
+export const isSeeRightContentsVar = makeVar(Boolean(localStorage.getItem(SEE_RIGHT_CONTENTS)))
+export const hideRightContents = () => {
+  localStorage.removeItem(SEE_RIGHT_CONTENTS)
+  isSeeRightContentsVar(false)
+}
+export const seeRightContents = () => {
+  localStorage.setItem(SEE_RIGHT_CONTENTS, "true")
+  isSeeRightContentsVar(true)
+}
+
+export const initLoadVar = makeVar(Boolean(localStorage.getItem(INIT_LOAD)))
+export const notInitLoad = () => {
+  localStorage.removeItem(INIT_LOAD)
+  initLoadVar(false)
+}
+export const setInitLoad = () => {
+  localStorage.setItem(INIT_LOAD, "true")
+  initLoadVar(true)
 }

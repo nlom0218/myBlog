@@ -17,12 +17,14 @@ export const color = {
 
 export const ligthTheme = {
   bgColor: color.white,
-  fontColor: color.black
+  fontColor: color.black,
+  menuBgColor: "rgb(179, 205, 224)"
 }
 
 export const darkTheme = {
   bgColor: color.black,
-  fontColor: color.white
+  fontColor: color.white,
+  menuBgColor: "rgb(3, 57, 107)"
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -30,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100vh;
     position: relative;
-    background-color: red;
+    background-color: ${props => props.theme.menuBgColor};
     color: ${props => props.theme.fontColor};
     transition: background-color 1s ease, color 1s ease;
     font-size: 1em;
