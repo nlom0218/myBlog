@@ -18,13 +18,15 @@ export const color = {
 export const ligthTheme = {
   bgColor: color.white,
   fontColor: color.black,
-  menuBgColor: "rgb(179, 205, 224)"
+  menuBgColor: "rgb(179, 205, 224)",
+  menuFontColor: "rgb(3, 57, 107)"
 }
 
 export const darkTheme = {
   bgColor: color.black,
   fontColor: color.white,
-  menuBgColor: "rgb(3, 57, 107)"
+  menuBgColor: "rgb(3, 57, 107)",
+  menuFontColor: "rgb(179, 205, 224)"
 }
 
 export const GlobalStyle = createGlobalStyle`
