@@ -44,3 +44,28 @@ export const setInitLoad = () => {
   localStorage.setItem(INIT_LOAD, "true")
   initLoadVar(true)
 }
+
+// routes 대신
+const LEFT = "left"
+const RIGHT = "right"
+
+export const routes = {
+
+}
+
+export const leftPageVar = makeVar(localStorage.getItem(LEFT))
+export const rightPageVar = makeVar(localStorage.getItem(RIGHT))
+export const moveHome = (direction) => {
+  if (direction === "left") {
+    localStorage.removeItem(LEFT)
+  } else {
+    localStorage.removeItem(RIGHT)
+  }
+}
+export const movePage = (direction, page) => {
+  if (direction === "left") {
+    localStorage.setItem(LEFT, page)
+  } else {
+    localStorage.setItem(RIGHT, page)
+  }
+}

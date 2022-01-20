@@ -1,10 +1,8 @@
 import { useReactiveVar } from '@apollo/client';
 import { BiRightArrowAlt } from "react-icons/bi";
-import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { FadeInRightContainer, FadeOutRightContainer } from '../../animation/containerFadeAni';
 import { disableRightContents, hideRightContents, initLoadVar, isSeeRightContentsVar, notInitLoad, rightContentsVar } from '../../apollo';
-import routes from '../../routes';
 
 const SRightContainer = styled.div`
   position: absolute;
@@ -82,14 +80,11 @@ const BarIcon = styled.div`
 `
 
 const RightContainer = ({ children }) => {
-  const navigate = useNavigate()
-
   const rightContents = useReactiveVar(rightContentsVar)
   const initLoad = useReactiveVar(initLoadVar)
   const isSeeRightContents = useReactiveVar(isSeeRightContentsVar)
 
   const onClickDivideBar = () => {
-    navigate(routes.home)
     disableRightContents()
     notInitLoad()
     setTimeout(() => {

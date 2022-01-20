@@ -1,15 +1,19 @@
 import { useReactiveVar } from '@apollo/client';
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { darkModeVar, hideRightContents, rightContentsVar, seeRightContents, setInitLoad } from './apollo';
-import Home from './pages/Home';
-import routes from './routes';
+import { darkModeVar, hideRightContents, leftPageVar, rightContentsVar, rightPageVar, seeRightContents, setInitLoad } from './apollo';
+import BasicContainer from './Components/Shared/BasicContainer';
+import LeftContainer from './Components/Shared/LeftContainer';
+import RightContainer from './Components/Shared/RightContainer';
+import MyLifeHome from './pages/MyLife/MyLifeHome';
+import StudyHome from './pages/Study/StudyHome';
 import { darkTheme, GlobalStyle, ligthTheme } from './styles';
 
 function App() {
   const darkMode = useReactiveVar(darkModeVar)
   const rightContents = useReactiveVar(rightContentsVar)
+  const leftPage = useReactiveVar(leftPageVar)
+  const rightPage = useReactiveVar(rightPageVar)
 
   useEffect(() => {
     setInitLoad()
@@ -22,10 +26,20 @@ function App() {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : ligthTheme}>
       <GlobalStyle />
-      <Routes>
-        <Route path={routes.home} element={<Home />} />
-      </Routes>
+      <BasicContainer>
+
+        {/* MY LIFE */}
+        <LeftContainer>
+          {!leftPage && <MyLifeHome />}
+        </LeftContainer>
+
+        {/* STUDY */}
+        <RightContainer>
+          {!rightPage && <StudyHome />}
+        </RightContainer>
+      </BasicContainer>
     </ThemeProvider>
+
   );
 }
 
