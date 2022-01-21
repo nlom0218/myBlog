@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color } from '../../styles';
+import { color, customMedia } from '../../styles';
 import DownIcon from './DownIcon';
 
 const Container = styled.div`
@@ -41,8 +41,8 @@ const Text = styled.div`
 	font-weight: 600;
 	line-height: 120%;
 	text-align: left;
-	font-size: 5em;
-	font-size: 5rem;
+  font-size: 3em;
+	font-size: 3rem;
 	color: ${color.black};
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: grid;
@@ -51,6 +51,10 @@ const Text = styled.div`
   text-align: left;
   font-weight: 600;
   text-shadow: -5px 5px ${color.white};
+  ${customMedia.greaterThan(`tablet`)`
+  	font-size: 5em;
+	  font-size: 5rem;
+  `}
 `
 
 const IntroStart = ({ number }) => {

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { welcomeDownIconAni, welcomeTitleAni } from '../../animation/textColorChangeAni';
-import { color } from '../../styles';
+import { color, customMedia } from '../../styles';
 import { BsChevronDoubleDown } from "react-icons/bs"
 import IntroStart from '../../Components/MyLife/IntroStart';
+import DownIcon from '../../Components/MyLife/DownIcon';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -23,9 +24,13 @@ const Welcome = styled.div`
   background-size: cover;
   background-position: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  z-index: 10;
+  grid-template-rows: auto auto 1fr;
+  row-gap: 40px;
+  row-gap: 2.5rem;
+  ${customMedia.greaterThan(`tablet`)`
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  `}
 `
 
 const ImageDescription = styled.div`
@@ -56,23 +61,6 @@ const WelcomeTitle = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: ${welcomeTitleAni} 3s infinite linear;
-`
-
-const DownIcon = styled.div`
-  grid-column: 2 / 3;
-  grid-row: -2 / -1;
-  position: relative;
-  svg {
-    display: flex;
-    position: absolute;
-    right: 20px;
-    right: 1.25rem;
-    color: ${color.white};
-    font-size: 2em;
-    font-size: 2rem;
-    animation: ${welcomeDownIconAni} 1.5s linear infinite;
-    filter: drop-shadow(2px 2px 2px rgb(0, 0, 0))
-  }
 `
 
 const MyLifeHome = () => {
