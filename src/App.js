@@ -8,6 +8,7 @@ import RightContainer from './Components/Shared/RightContainer';
 import MyLifeHome from './pages/MyLife/MyLifeHome';
 import SchoolLife from './pages/MyLife/SchoolLife';
 import Travel from './pages/MyLife/Travel';
+import Calendar from './pages/Study/Calendar';
 import StudyHome from './pages/Study/StudyHome';
 import { darkTheme, GlobalStyle, ligthTheme } from './styles';
 
@@ -40,6 +41,7 @@ function App() {
         {/* STUDY */}
         <RightContainer>
           {!rightPage && <StudyHome />}
+          {rightPage === "calendar" && <Calendar />}
         </RightContainer>
       </BasicContainer>
     </ThemeProvider>

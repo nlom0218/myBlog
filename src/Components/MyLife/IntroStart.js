@@ -40,7 +40,7 @@ const Text = styled.div`
   bottom: 0;
 	font-weight: 600;
 	line-height: 120%;
-	text-align: left;
+	text-align: center;
   font-size: 3em;
 	font-size: 3rem;
 	color: ${color.black};
@@ -55,6 +55,9 @@ const Text = styled.div`
   	font-size: 5em;
 	  font-size: 5rem;
   `}
+  div {
+    text-align: center;
+  }
 `
 
 const IntroStart = ({ number }) => {
