@@ -3,6 +3,10 @@ import { format, startOfWeek, getWeeksInMonth, addMonths, startOfMonth, addDays,
 import CalendarItem from '../../Components/Calendar/CalendarItem';
 import styled from 'styled-components';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
+import { AiOutlinePlus } from "react-icons/ai"
+import { inPopup, isPopupVar } from '../../apollo';
+import { useReactiveVar } from '@apollo/client';
+import AddSchedule from '../../Components/Calendar/Popup/AddSchedule';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -13,7 +17,7 @@ const Container = styled.div`
 
 const TopContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr auto auto auto auto;
   padding: 20px;
   padding: 1.25rem;
   align-items: center;
@@ -78,6 +82,8 @@ const CalendarList = styled.div`
 `
 
 const Calendar = () => {
+  const isPopup = useReactiveVar(isPopupVar)
+
   const [date, setDate] = useState(new Date())
   const [dateArr, setDateArr] = useState(undefined)
 
@@ -93,6 +99,10 @@ const Calendar = () => {
   const onClickBtnMinus = () => {
     const newDate = addMonths(date, -1)
     setDate(newDate)
+  }
+
+  const onClickPlusBtn = () => {
+    inPopup("addSchedule")
   }
 
   useEffect(() => {
@@ -131,6 +141,7 @@ const Calendar = () => {
       <TodayBtn className="calendar_btn" onClick={onClickTodayBtn}>TODAY</TodayBtn>
       <Btn className="calendar_btn" onClick={onClickBtnMinus}><IoIosArrowBack /></Btn>
       <Btn className="calendar_btn" onClick={onClickBtn}><IoIosArrowForward /></Btn>
+      <Btn className="calendar_btn" onClick={onClickPlusBtn}><AiOutlinePlus /></Btn>
     </TopContainer>
     <BottomContainer>
       {["일", "월", "화", "수", "목", "금", "토"].map((item, index) => {
@@ -144,6 +155,7 @@ const Calendar = () => {
         })}
       </CalendarList>
     </BottomContainer>
+    {isPopup === "addSchedule" && <AddSchedule />}
   </Container>);
 }
 

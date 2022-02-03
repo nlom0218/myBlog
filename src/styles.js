@@ -25,6 +25,7 @@ export const ligthTheme = {
   menuFontColor: "rgb(3, 57, 107)",
   redColor: color.red,
   blurColor: "rgba(200, 200, 200, 1)",
+  popupBgColor: "rgba(0,0,0,0.75)",
 }
 
 export const darkTheme = {
@@ -34,6 +35,7 @@ export const darkTheme = {
   menuFontColor: "rgb(179, 205, 224)",
   redColor: color.ligthRed,
   blurColor: "rgba(90, 90, 90, 1)",
+  popupBgColor: "rgba(200,200,200,0.8)",
 }
 
 export const GlobalStyle = createGlobalStyle`

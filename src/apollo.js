@@ -4,6 +4,7 @@ const DARK = "dark"
 const RIGHT_CONTENTS = "rightContents"
 const INIT_LOAD = "initLoad"
 const SEE_RIGHT_CONTENTS = "seeRightContents"
+const POPUP = "popup"
 
 export const darkModeVar = makeVar(Boolean(localStorage.getItem(DARK)))
 export const enableDarkMode = () => {
@@ -73,3 +74,13 @@ export const movePage = (direction, page) => {
     rightPageVar(page)
   }
 }
+
+export const isPopupVar = makeVar(localStorage.getItem(POPUP));
+export const inPopup = (type) => {
+  localStorage.setItem(POPUP, type);
+  isPopupVar(type);
+};
+export const outPopup = () => {
+  localStorage.removeItem(POPUP);
+  isPopupVar(false);
+};
