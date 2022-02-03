@@ -4,7 +4,12 @@ import CalendarItem from '../../Components/Calendar/CalendarItem';
 import styled from 'styled-components';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 
-const Container = styled.div``
+const Container = styled.div`
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+`
 
 const TopContainer = styled.div`
   display: grid;
@@ -45,6 +50,31 @@ const Btn = styled.div`
     font-size: 1.25rem;
     display: flex;
   }
+`
+
+const BottomContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto 1fr;
+`
+
+const Day = styled.div`
+  justify-self: flex-end;
+  padding: 20px;
+  padding: 1.25rem;
+  color: ${props => props.sun && props.theme.redColor};
+  transition: ${props => props.sun && "color 1s ease"};
+`
+
+const CalendarList = styled.div`
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: ${props => props.theme.blurColor};
+  border-top: 1px solid ${props => props.theme.blurColor};
+  transition: background-color 1s ease, border-top 1s ease;
+  row-gap: 1px;
+  column-gap: 1px;
 `
 
 const Calendar = () => {
@@ -102,9 +132,18 @@ const Calendar = () => {
       <Btn className="calendar_btn" onClick={onClickBtnMinus}><IoIosArrowBack /></Btn>
       <Btn className="calendar_btn" onClick={onClickBtn}><IoIosArrowForward /></Btn>
     </TopContainer>
-    {dateArr && dateArr.map((item, index) => {
-      return <CalendarItem key={index} item={item} />
-    })}
+    <BottomContainer>
+      {["일", "월", "화", "수", "목", "금", "토"].map((item, index) => {
+        return <Day key={index} sun={item === "일"}>
+          {item}
+        </Day>
+      })}
+      <CalendarList>
+        {dateArr && dateArr.map((item, index) => {
+          return <CalendarItem key={index} item={item} />
+        })}
+      </CalendarList>
+    </BottomContainer>
   </Container>);
 }
 

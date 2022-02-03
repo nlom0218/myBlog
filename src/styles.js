@@ -12,21 +12,28 @@ export const color = {
   white: "rgba(240, 240, 240)",
   black: "rgba(40, 40, 40)",
   red: "rgba(255, 80,80)",
-  yellow: "rgba(255, 255, 40)"
+  ligthRed: "#fc8876",
+  yellow: "rgba(255, 255, 40)",
+  gray: "#e2e2e2",
+  maroon: "#555555",
 }
 
 export const ligthTheme = {
   bgColor: color.white,
   fontColor: color.black,
   menuBgColor: "rgb(179, 205, 224)",
-  menuFontColor: "rgb(3, 57, 107)"
+  menuFontColor: "rgb(3, 57, 107)",
+  redColor: color.red,
+  blurColor: "rgba(200, 200, 200, 1)",
 }
 
 export const darkTheme = {
   bgColor: color.black,
   fontColor: color.white,
   menuBgColor: "rgb(3, 57, 107)",
-  menuFontColor: "rgb(179, 205, 224)"
+  menuFontColor: "rgb(179, 205, 224)",
+  redColor: color.ligthRed,
+  blurColor: "rgba(90, 90, 90, 1)",
 }
 
 export const GlobalStyle = createGlobalStyle`
