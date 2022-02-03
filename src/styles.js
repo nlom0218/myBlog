@@ -39,6 +39,7 @@ export const GlobalStyle = createGlobalStyle`
     transition: background-color 1s ease, color 1s ease;
     font-size: 1em;
     font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   * {
     box-sizing: border-box;
