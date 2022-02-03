@@ -41,8 +41,8 @@ const SRegisterContainer = styled.div`
 
 const RegisterPage = styled.div`
   height: ${props => props.maxHeight && "100%"};
-  padding: 10px 30px;
-  padding: 0.625rem 1.875rem;
+  padding: 30px;
+  padding: 1.875rem;
   padding: ${props => props.emojiPopup && 0};
   display: grid;
   align-items: flex-start;

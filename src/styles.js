@@ -16,6 +16,8 @@ export const color = {
   yellow: "rgba(255, 255, 40)",
   gray: "#e2e2e2",
   maroon: "#555555",
+  blue: "#1c5b8e",
+  lightBlue: "#7CC6FF",
 }
 
 export const ligthTheme = {
@@ -26,6 +28,8 @@ export const ligthTheme = {
   redColor: color.red,
   blurColor: "rgba(200, 200, 200, 1)",
   popupBgColor: "rgba(0,0,0,0.75)",
+  originBgColor: "#ffffff",
+  btnBgColor: color.blue,
 }
 
 export const darkTheme = {
@@ -36,6 +40,8 @@ export const darkTheme = {
   redColor: color.ligthRed,
   blurColor: "rgba(90, 90, 90, 1)",
   popupBgColor: "rgba(200,200,200,0.8)",
+  originBgColor: "#000000",
+  btnBgColor: color.lightBlue,
 }
 
 export const GlobalStyle = createGlobalStyle`
