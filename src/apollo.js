@@ -5,6 +5,7 @@ const RIGHT_CONTENTS = "rightContents"
 const INIT_LOAD = "initLoad"
 const SEE_RIGHT_CONTENTS = "seeRightContents"
 const POPUP = "popup"
+const MYSCHEDULE = "mySchedule"
 
 export const darkModeVar = makeVar(Boolean(localStorage.getItem(DARK)))
 export const enableDarkMode = () => {
@@ -46,6 +47,28 @@ export const setInitLoad = () => {
   initLoadVar(true)
 }
 
+export const isPopupVar = makeVar(localStorage.getItem(POPUP));
+export const inPopup = (type) => {
+  localStorage.setItem(POPUP, type);
+  isPopupVar(type);
+};
+export const outPopup = () => {
+  localStorage.removeItem(POPUP);
+  isPopupVar(false);
+};
+
+export const myScheduleVar = makeVar(localStorage.getItem(MYSCHEDULE) ? localStorage.getItem(MYSCHEDULE) : [])
+export const addMySchedule = (newSchedule) => {
+  const existScheduleArr = JSON.parse(localStorage.getItem(MYSCHEDULE))
+  if (!existScheduleArr) {
+    localStorage.setItem(MYSCHEDULE, JSON.stringify([newSchedule]))
+  } else {
+    const newScheduleArr = [...existScheduleArr, newSchedule]
+    localStorage.setItem(MYSCHEDULE, JSON.stringify(newScheduleArr))
+    myScheduleVar(newScheduleArr)
+  }
+}
+
 // routes 대신
 const LEFT = "left"
 const RIGHT = "right"
@@ -74,13 +97,3 @@ export const movePage = (direction, page) => {
     rightPageVar(page)
   }
 }
-
-export const isPopupVar = makeVar(localStorage.getItem(POPUP));
-export const inPopup = (type) => {
-  localStorage.setItem(POPUP, type);
-  isPopupVar(type);
-};
-export const outPopup = () => {
-  localStorage.removeItem(POPUP);
-  isPopupVar(false);
-};

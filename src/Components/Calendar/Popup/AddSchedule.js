@@ -11,6 +11,8 @@ import { AiOutlineBgColors } from 'react-icons/ai';
 import { BsCalendarDate } from 'react-icons/bs';
 import DatePicker from 'react-datepicker';
 import { ko } from "date-fns/esm/locale";
+import { useReactiveVar } from '@apollo/client';
+import { addMySchedule, myScheduleVar, outPopup } from '../../../apollo';
 
 const Container = styled.div`
   display: grid;
@@ -58,8 +60,8 @@ const InputLayout = styled.div`
 `
 
 const Icon = styled.div`
-  padding: ${props => props.notPaddingTop ? "0px" : "15px"} 15px;
-  padding: ${props => props.notPaddingTop ? "0px" : "0.9375rem"} 0.9375rem;
+  padding: ${props => props.notPaddingTop ? "0px" : "15px"} 0px;
+  padding: ${props => props.notPaddingTop ? "0px" : "0.9375rem"} 0rem;
   font-size: 1.25em;
   font-size: 1.25rem;
   svg {
@@ -68,7 +70,6 @@ const Icon = styled.div`
 `
 
 const Input = styled.input`
-  width: 100%;
   background-color: ${props => props.theme.originBgColor};
   padding: 15px 20px;
   padding: 0.9375rem 1.25rem;
@@ -152,6 +153,9 @@ const SubmitInput = styled.input`
 `
 
 const AddSchedule = () => {
+  const mySchedule = useReactiveVar(myScheduleVar)
+  console.log(mySchedule);
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(undefined);
   const [color, setColor] = useState(undefined)
@@ -164,10 +168,26 @@ const AddSchedule = () => {
   const { register, handleSubmit } = useForm({
     mode: "onChange"
   })
+
+  const onSubmit = (data) => {
+    const { title, detail } = data
+    const newSchedule = {
+      id: Date.now(),
+      title,
+      detail,
+      startDate,
+      endDate,
+      color,
+      isRegisterTodo
+    }
+    addMySchedule(newSchedule)
+    outPopup()
+  }
+
   return (<PopupContainer>
     <Container>
       <Title>일정등록</Title>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <InputLayout>
           <Icon><BsFillPencilFill /></Icon>
           <Input

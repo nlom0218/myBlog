@@ -31,7 +31,6 @@ const Line = styled.div`
 `
 
 const CalendarItem = ({ item }) => {
-  console.log(isToday(item.date));
   return (<Container>
     <Day
       sun={getDay(item.date) === 0}
